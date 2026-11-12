@@ -6,3 +6,75 @@
 .gift-actions .button{margin:3px auto;min-width:215px}
 .rsvp-deadline{font:500 13px/1.6 'DM Sans',sans-serif;color:#8b647b;margin-top:4px}
 #dress-link{max-width:100%;font-size:13px}
+
+
+/* Visual v2: armonización móvil sin imágenes rectangulares ni superposiciones. */
+:root { --paper:#fdf8f5; }
+body {background:var(--paper)}
+.page-shell {background:var(--paper)}
+/* La cubierta conserva el arte aprobado, pero su leyenda ahora es texto HTML. */
+.cover-art {isolation:isolate}
+.cover-years {
+ position:absolute;z-index:2;left:23%;top:29.8%;width:54%;height:4.6%;
+ display:flex;align-items:center;justify-content:center;
+ font-family:'Forum',Georgia,serif;font-size:clamp(15px,4.5vw,24px);
+ font-weight:400;letter-spacing:.23em;color:#83627f;white-space:nowrap;
+}
+.cover-years::before{
+ content:"";position:absolute;z-index:-1;inset:-16% -8%;
+ background:radial-gradient(ellipse at center, #fdf8f5 45%,rgba(253,248,245,.99) 64%,rgba(253,248,245,.82) 78%,transparent 100%);
+ filter:blur(2px);
+}
+.scene,.scene:nth-of-type(odd),.scene--gifts {
+ background:var(--paper)!important;
+ background-image:none!important;
+}
+.scene {
+ padding:55px 25px 66px;
+ border-top:1px solid rgba(199,158,173,.15);
+ min-height:100svh;
+ gap:7px;
+}
+.scene .deco {display:none!important}
+.scene__body {max-width:365px}
+.eyebrow {font-size:10px;line-height:1.5;letter-spacing:.14em;margin:0}
+h1,h2 {font-size:clamp(32px,8.8vw,43px);line-height:1.12;margin:13px auto}
+.ornament {margin:14px auto 20px}
+.scene__text{font-size:clamp(19px,5.1vw,23px);line-height:1.42;margin:11px auto}
+.signature{font-size:64px;line-height:1.06;margin:4px auto}
+.welcome-sky {
+ display:flex;align-items:center;justify-content:space-between;
+ max-width:300px;width:100%;height:125px;flex:none;
+ margin:0 auto 4px;position:relative;
+}
+.welcome-sky img,.welcome-mushroom,.scene-bottom-art,.small-butterfly,.end-butterfly {
+ display:block;object-fit:contain;mix-blend-mode:multiply;
+ -webkit-mask-image:radial-gradient(ellipse at center,#000 44%,rgba(0,0,0,.9) 57%,transparent 86%);
+ mask-image:radial-gradient(ellipse at center,#000 44%,rgba(0,0,0,.9) 57%,transparent 86%);
+}
+.welcome-sky img:first-child{height:125px;width:145px}
+.welcome-sky img:last-child{height:86px;width:86px}
+.welcome-mushroom{width:145px;height:auto;max-height:165px;margin:8px auto 0}
+.scene--welcome{padding-top:30px;padding-bottom:64px;justify-content:center}
+.scene--welcome .scene__body{max-width:340px}
+.scene--welcome .scene__text{font-size:clamp(18px,4.8vw,22px)}
+.scene--welcome .text-next{z-index:3;bottom:18px}
+.detail-group{margin:15px auto}
+.detail-value{overflow-wrap:anywhere}
+.scene--countdown .scene__body{max-width:365px}
+.small-butterfly{height:85px;width:85px;margin:5px auto 0}
+.scene-bottom-art{position:relative;z-index:1;width:165px;height:auto;margin:3px auto 0;flex:none}
+.scene--surprises .scene__body{flex:none}
+.scene--surprises{padding-bottom:50px}
+.scene--end .end-butterfly{width:84px;height:auto;margin:0 auto 12px}
+.rsvp-deadline{margin:15px auto 0}
+.gift-actions{width:100%;align-items:stretch}
+.gift-actions .button{font-size:13px;max-width:280px}
+@media(max-width:360px){
+ .scene{padding-left:19px;padding-right:19px}
+ .welcome-sky{height:102px}
+ .welcome-sky img:first-child{width:120px;height:105px}
+ .welcome-sky img:last-child{width:72px;height:72px}
+ .welcome-mushroom{width:120px}
+}
+@media(prefers-reduced-motion:reduce){.scene,.deco{animation:none!important}}
