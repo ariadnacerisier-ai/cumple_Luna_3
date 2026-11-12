@@ -1,54 +1,101 @@
-# El jardín encantado de Luna 🦋
+(() => {
+  'use strict';
+  const config = window.LUNA_CONFIG || {};
+  const el = (id) => document.getElementById(id);
+  const setText = (id, text) => { if (el(id)) el(id).textContent = text; };
+  const validWebUrl = (value) => {
+    try { const u = new URL(value); return ['https:', 'http:'].includes(u.protocol) ? u.href : ''; }
+    catch { return ''; }
+  };
 
-Invitación digital para el tercer cumpleaños de Luna. Sitio web estático, **mobile-first**, desarrollado en HTML, CSS y JavaScript. No requiere dependencias, npm ni compilación.
+  // Fecha y hora: el navegador muestra la fecha de acuerdo con hora CDMX.
+  const eventDate = config.dateTime ? new Date(config.dateTime) : null;
+  const validDate = eventDate instanceof Date && !Number.isNaN(eventDate.getTime());
+  if (validDate) {
+    const loc = 'es-MX';
+    const zone = 'America/Mexico_City';
+    setText('event-date', new Intl.DateTimeFormat(loc, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: zone }).format(eventDate));
+    setText('event-time', new Intl.DateTimeFormat(loc, { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: zone }).format(eventDate));
+  }
+  if (typeof config.venueName === 'string' && config.venueName.trim()) {
+    setText('event-venue', config.venueName.trim());
+  }
+  if (typeof config.venueAddress === 'string' && config.venueAddress.trim()) {
+    setText('event-address', config.venueAddress.trim());
+  }
 
-## Estructura
+  const maps = validWebUrl(config.mapsUrl || '');
+  if (maps) {
+    const link = el('maps-link');
+    link.href = maps;
+    link.hidden = false;
+    el('maps-pending').hidden = true;
+  }
 
-- `index.html`: portada, bienvenida, datos del evento, cuenta regresiva, sorpresas, confirmación y despedida.
-- `styles.css`: diseño responsivo con acuarelas, fuentes y animaciones ligeras.
-- `script.js`: cuenta regresiva, conexión a Maps y WhatsApp, transiciones y pétalos al entrar.
-- **`config.js`: único archivo que necesitas editar para introducir la información real.**
-- `assets/`: portada aprobada e ilustraciones complementarias comprimidas en WebP.
+  // Cuenta regresiva real. Se oculta cuando aún no se conoce la fecha.
+  function updateCountdown() {
+    if (!validDate) return;
+    const delta = Math.max(0, eventDate.getTime() - Date.now());
+    if (delta === 0) {
+      ['days','hours','minutes','seconds'].forEach((id) => setText(id, '00'));
+      setText('countdown-caption', '¡El gran día ha llegado!');
+      return;
+    }
+    const s = Math.floor(delta / 1000);
+    setText('days', String(Math.floor(s / 86400)).padStart(2, '0'));
+    setText('hours', String(Math.floor((s % 86400) / 3600)).padStart(2, '0'));
+    setText('minutes', String(Math.floor((s % 3600) / 60)).padStart(2, '0'));
+    setText('seconds', String(s % 60).padStart(2, '0'));
+    setText('countdown-caption', 'Cada segundo nos acerca un poquito más a la magia.');
+  }
+  updateCountdown();
+  if (validDate) window.setInterval(updateCountdown, 1000);
 
-## Personalizar
+  // WhatsApp: no enlazar ni mostrar el botón hasta configurar un número válido.
+  const phone = String(config.rsvpPhone || '').replace(/\D/g, '');
+  if (phone.length >= 10 && phone.length <= 15) {
+    const link = el('rsvp-link');
+    const message = typeof config.rsvpMessage === 'string' ? config.rsvpMessage : 'Hola, quiero confirmar mi asistencia.';
+    link.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    link.hidden = false;
+    el('rsvp-pending').hidden = true;
+  }
 
-Abre `config.js` y completa:
+  // Código de vestimenta: sección opcional.
+  if (typeof config.dressCode === 'string' && config.dressCode.trim()) {
+    setText('dress-copy', config.dressCode.trim());
+    el('vestimenta').hidden = false;
+  }
 
-```js
-window.LUNA_CONFIG = {
-  dateTime: "",       // ISO con zona horaria: AAAA-MM-DDTHH:mm:ss-06:00
-  venueName: "",      // Nombre exacto del lugar
-  venueAddress: "",   // Dirección visible
-  mapsUrl: "",        // Enlace real a Maps o Waze
-  rsvpPhone: "",      // 52 + teléfono, SIN + ni espacios (el formato depende del número)
-  rsvpMessage: "¡Hola! Me gustaría confirmar mi asistencia al cumpleaños de Luna. 🦋🌸",
-  dressCode: ""       // Opcional; si está vacío, no aparece la sección
-};
-```
+  // Animaciones suaves, respetando accesibilidad y preferencia de movimiento reducido.
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealNodes = document.querySelectorAll('.reveal');
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    revealNodes.forEach(node => node.classList.add('reveal--ready'));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal--visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealNodes.forEach(node => observer.observe(node));
+  }
 
-**Importante:** los datos de fecha, lugar y contacto aún no han sido facilitados. La invitación muestra «por confirmar» y no activa enlaces hasta que existan valores reales. No hay horarios o teléfonos inventados.
-
-## Ver en computadora
-
-Abre `index.html` en un navegador. También puedes levantar un servidor sencillo:
-
-```bash
-python3 -m http.server 8000
-```
-
-Después entra a `http://localhost:8000`.
-
-## Subir a GitHub
-
-1. Crea un repositorio llamado `cumple_Luna_3`.
-2. Sube el **contenido interno** de esta carpeta a la raíz del repositorio. En GitHub: **Add file → Upload files**.
-3. Confirma que `index.html` está en la raíz y `assets/` está junto a él.
-4. Revisa en el navegador; para publicarlo como sitio web, utiliza GitHub Pages desde **Settings → Pages** (o el método de hosting que prefieras).
-
-## Privacidad
-
-La portada contiene una imagen de una niña pequeña. **No publiques GitHub Pages ni conviertas el repositorio en público sin contar con la autorización de sus padres o tutores.** Incluso con el repositorio privado, un sitio de GitHub Pages puede ser visible en la web; verifica las condiciones de privacidad antes de compartir el enlace. Esta entrega está pensada como proyecto local hasta que se autorice publicarlo.
-
-## Notas de diseño
-
-Se conserva la portada aprobada como imagen para no alterar los rasgos y la composición de Luna. El botón «Descubre la magia» es un enlace HTML superpuesto y accesible. Las pantallas interiores son HTML editable; las acuarelas son recursos decorativos optimizados.
+  // Pequeño efecto de pétalos al entrar. Se ejecuta sólo tras una interacción real.
+  const enter = document.querySelector('.cover-enter');
+  const layer = document.querySelector('.petal-layer');
+  enter?.addEventListener('click', () => {
+    if (prefersReducedMotion || !layer) return;
+    for (let i = 0; i < 11; i++) {
+      const petal = document.createElement('span');
+      petal.className = 'petal';
+      petal.style.setProperty('--left', `${15 + Math.random() * 70}%`);
+      petal.style.setProperty('--delay', `${Math.random() * 0.5}s`);
+      petal.style.setProperty('--drift', `${Math.round(Math.random() * 180 - 90)}px`);
+      layer.appendChild(petal);
+      petal.addEventListener('animationend', () => petal.remove(), {once: true});
+    }
+  });
+})();

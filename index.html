@@ -1,19 +1,143 @@
-/**
- * Edita únicamente este archivo para personalizar la invitación.
- * Los campos vacíos se muestran como "por confirmar"; no hay datos inventados.
- *
- * dateTime incluye zona horaria de México; ejemplo de FORMATO (no fecha real):
- * "2027-01-30T16:00:00-06:00"
- *
- * rsvpPhone incluye código de país sin +, espacios ni guiones.
- * Ejemplo de FORMATO: "5215512345678" (no es un número real).
- */
-window.LUNA_CONFIG = {
-  dateTime: "",
-  venueName: "",
-  venueAddress: "",
-  mapsUrl: "",
-  rsvpPhone: "",
-  rsvpMessage: "¡Hola! Me gustaría confirmar mi asistencia al cumpleaños de Luna. 🦋🌸",
-  dressCode: ""
-};
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fcf4f1">
+  <meta name="description" content="Estás invitado al jardín encantado de Luna. ¡Ven a celebrar sus tres añitos!">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="El jardín encantado de Luna · Mis 3 añitos">
+  <meta property="og:description" content="Una invitación muy especial, llena de magia y mariposas.">
+  <meta property="og:image" content="https://savetheclick.online/cumple_Luna_3/assets/portada-luna.webp">
+  <title>El jardín encantado de Luna · Mis 3 añitos</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Sans:wght@400;500;600&family=Forum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#bienvenida">Ir al contenido</a>
+  <div class="page-shell">
+    <main class="invitation">
+      <section class="cover" id="portada" aria-label="Portada del jardín encantado de Luna">
+        <div class="cover-art">
+          <img src="assets/portada-luna.webp" width="850" height="1510" alt="Luna con vestido de hada rosa y alas lila en una invitación de acuarela que dice El jardín encantado de Luna, mis 3 añitos" fetchpriority="high">
+          <a class="cover-enter" href="#bienvenida" aria-label="Descubre la magia y abre la invitación"><span class="sr-only">Descubre la magia</span></a>
+        </div>
+        <a class="cover-scroll" href="#bienvenida">Desliza para descubrir <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="scene scene--welcome" id="bienvenida" aria-labelledby="welcome-heading">
+        <img class="deco deco--fairy-left" src="assets/hada-izquierda.webp" alt="" loading="lazy">
+        <img class="deco deco--butterfly" src="assets/mariposa-lila.webp" alt="" loading="lazy">
+        <div class="scene__body reveal">
+          <p class="eyebrow">Bienvenidos a mi pequeño mundo</p>
+          <h1 id="welcome-heading">¡La magia está<br><em>por comenzar!</em></h1>
+          <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+          <p class="scene__text">Entre flores, mariposas y pequeños destellos, hay algo muy especial por celebrar.</p>
+          <p class="scene__text">¡Acompáñanos a festejar los <strong>3 añitos de Luna</strong>!</p>
+          <p class="signature">Luna</p>
+        </div>
+        <img class="deco deco--mushroom" src="assets/casita-hongo.webp" alt="" loading="lazy">
+        <a href="#detalles" class="text-next">Continúa por el jardín <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="scene scene--details" id="detalles" aria-labelledby="details-heading">
+        <img class="deco deco--sprig" src="assets/ramita-floral.webp" alt="" loading="lazy">
+        <div class="scene__body reveal">
+          <p class="eyebrow">Guarda un espacio para la magia</p>
+          <h2 id="details-heading">Un día <em>mágico</em></h2>
+          <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+          <div class="detail-group">
+            <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg></div>
+            <p class="detail-title">¿Cuándo?</p>
+            <p class="detail-value" id="event-date">Fecha por confirmar</p>
+            <p class="detail-meta" id="event-time">Horario por confirmar</p>
+          </div>
+          <div class="detail-separator" aria-hidden="true">✧</div>
+          <div class="detail-group">
+            <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <p class="detail-title">¿Dónde?</p>
+            <p class="detail-value" id="event-venue">Lugar por confirmar</p>
+            <p class="detail-meta" id="event-address"></p>
+          </div>
+          <a class="button button--sage" id="maps-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+            <span aria-hidden="true">⌖</span> Cómo llegar <span aria-hidden="true">↗</span>
+          </a>
+          <p class="pending" id="maps-pending">Pronto compartiremos los detalles.</p>
+        </div>
+      </section>
+
+      <section class="scene scene--countdown" id="cuenta-regresiva" aria-labelledby="countdown-heading">
+        <img class="deco deco--butterfly-count" src="assets/mariposa-lila.webp" alt="" loading="lazy">
+        <div class="scene__body reveal">
+          <p class="eyebrow">Un poquito de paciencia…</p>
+          <h2 id="countdown-heading">Falta muy poquito<br><em>para celebrar</em></h2>
+          <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+          <div class="countdown" aria-label="Cuenta regresiva para la fiesta">
+            <div class="count-unit"><span id="days">--</span><small>Días</small></div>
+            <div class="count-unit"><span id="hours">--</span><small>Horas</small></div>
+            <div class="count-unit"><span id="minutes">--</span><small>Min</small></div>
+            <div class="count-unit"><span id="seconds">--</span><small>Seg</small></div>
+          </div>
+          <p class="countdown-caption" id="countdown-caption">La cuenta regresiva aparecerá cuando confirmemos la fecha.</p>
+          <p class="mini-script">Prepara tus alas…</p>
+        </div>
+        <img class="deco deco--flower-bottom" src="assets/flor-esquina.webp" alt="" loading="lazy">
+      </section>
+
+      <section class="scene scene--surprises" id="sorpresas" aria-labelledby="surprises-heading">
+        <div class="scene__body reveal">
+          <p class="eyebrow">Un mundo para imaginar</p>
+          <h2 id="surprises-heading">Un jardín de<br><em>sorpresas</em></h2>
+          <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+          <p class="scene__text">Trae tu mejor sonrisa y muchas ganas de compartir un día especial.</p>
+          <p class="scene__text">Las historias más bonitas comienzan cuando estamos juntos.</p>
+        </div>
+        <img class="deco deco--door" src="assets/puerta-floral.webp" alt="" loading="lazy">
+      </section>
+
+      <section class="scene scene--dress" id="vestimenta" aria-labelledby="dress-heading" hidden>
+        <div class="scene__body reveal">
+          <p class="eyebrow">Para quienes quieran sumarse al cuento</p>
+          <h2 id="dress-heading">Tu toque <em>mágico</em></h2>
+          <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+          <p class="scene__text" id="dress-copy"></p>
+        </div>
+        <img class="deco deco--mushroom-small" src="assets/casita-hongo.webp" alt="" loading="lazy">
+      </section>
+
+      <section class="scene scene--rsvp" id="confirmacion" aria-labelledby="rsvp-heading">
+        <div class="scene__body reveal">
+          <p class="eyebrow">Las haditas quieren saber…</p>
+          <h2 id="rsvp-heading">¿Nos <em>acompañas?</em></h2>
+          <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+          <p class="scene__text">Nos encantará compartir contigo un día lleno de cariño y pequeños momentos mágicos.</p>
+          <a class="button button--rose" id="rsvp-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3.6A11.8 11.8 0 0 0 12 0 12 12 0 0 0 1.6 18L0 24l6.1-1.6A12 12 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.6-8.4ZM12 21.9a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.6.9 1-3.5-.2-.4A9.9 9.9 0 1 1 12 21.9Zm5.5-7.4c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.3-.7.1a8 8 0 0 1-3.9-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.6L9 7.2c-.2-.4-.4-.4-.7-.4h-.6c-.2 0-.5.1-.8.4a3.4 3.4 0 0 0-1.1 2.5c0 1.5 1.1 2.9 1.2 3.1 1.4 2.2 3.1 1.4 2.2 3.5 3.9 5.9 4.6 2.5.8 3.4.7 4.1.6 1.2-.2 2.3-1.1 2.6-2.2.2-.6.2-1.1.1-1.2s-.2-.2-.5-.4Z"/></svg>
+            Confirmar por WhatsApp <span aria-hidden="true">↗</span>
+          </a>
+          <p class="pending" id="rsvp-pending">La confirmación estará disponible próximamente.</p>
+        </div>
+        <img class="deco deco--flower-rsvp" src="assets/flor-esquina.webp" alt="" loading="lazy">
+      </section>
+
+      <section class="scene scene--end" id="despedida" aria-labelledby="end-heading">
+        <div class="scene__body reveal">
+          <img class="end-butterfly" src="assets/mariposa-lila.webp" alt="" loading="lazy">
+          <h2 id="end-heading">Las mejores historias<br><em>se viven acompañados</em></h2>
+          <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+          <p class="scene__text">Gracias por formar parte de mi jardín encantado.</p>
+          <p class="signature signature--end">Luna</p>
+          <span class="small-caps">MIS 3 AÑITOS</span>
+          <a class="text-next text-next--return" href="#portada">Volver al inicio <span aria-hidden="true">↑</span></a>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="petal-layer" aria-hidden="true"></div>
+</body>
+</html>
