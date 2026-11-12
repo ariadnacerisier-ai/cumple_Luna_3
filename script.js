@@ -67,6 +67,36 @@
     el('vestimenta').hidden = false;
   }
 
+  // Inspiración de vestimenta: el enlace no impone ningún código específico.
+  const dressUrl = validWebUrl(config.dressCodeUrl || '');
+  if (dressUrl) {
+    el('vestimenta').hidden = false;
+    const dressLink = el('dress-link');
+    if (dressLink) { dressLink.href = dressUrl; dressLink.hidden = false; }
+  }
+
+  // Mesas de regalo: enlaces proporcionados por la familia, sin listado de productos.
+  [
+    ['gift-amazon', config.amazonRegistryUrl],
+    ['gift-liverpool', config.liverpoolRegistryUrl]
+  ].forEach(([id, url]) => {
+    const link = el(id);
+    const safeUrl = validWebUrl(url || '');
+    if (link && safeUrl) { link.href = safeUrl; link.hidden = false; }
+  });
+
+  // Fecha límite RSVP en la fecha local de México, sin conversión de zona horaria.
+  const deadline = String(config.rsvpDeadline || '');
+  if (/^\d{4}-\d{2}-\d{2}$/.test(deadline)) {
+    const [year, month, day] = deadline.split('-').map(Number);
+    const localDate = new Date(year, month - 1, day, 12);
+    if (localDate.getFullYear() === year && localDate.getMonth() === month - 1 && localDate.getDate() === day) {
+      const formatted = new Intl.DateTimeFormat('es-MX', {day:'numeric',month:'long',year:'numeric'}).format(localDate);
+      setText('rsvp-deadline', 'Confirma tu asistencia antes del ' + formatted + '.');
+      if (el('rsvp-deadline')) el('rsvp-deadline').hidden = false;
+    }
+  }
+
   // Animaciones suaves, respetando accesibilidad y preferencia de movimiento reducido.
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealNodes = document.querySelectorAll('.reveal');
