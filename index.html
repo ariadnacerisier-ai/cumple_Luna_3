@@ -25,6 +25,7 @@
       <section class="cover" id="portada" aria-label="Portada del jardín encantado de Luna">
         <div class="cover-art">
           <img src="assets/portada-luna.webp" width="850" height="1510" alt="Luna con vestido de hada rosa y alas lila en una invitación de acuarela que dice El jardín encantado de Luna, mis 3 años" fetchpriority="high">
+          <div class="magic-dust" id="magic-dust" aria-hidden="true"></div>
           <span class="cover-years" aria-hidden="true">MIS 3 AÑOS</span>
           <a class="cover-enter" href="#bienvenida" aria-label="Descubre la magia y abre la invitación"><span class="sr-only">Descubre la magia</span></a>
         </div>
@@ -114,7 +115,7 @@
           <h2 id="dress-heading">Tu toque <em>mágico</em></h2>
           <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
           <p class="scene__text" id="dress-copy"></p>
-          <a class="button button--sage" id="dress-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Ver inspiración de vestimenta <span aria-hidden="true">↗</span></a>
+          <a class="button button--outline" id="dress-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Ver inspiración <span aria-hidden="true">↗</span></a>
         </div>
         <img class="deco deco--mushroom-small" src="assets/casita-hongo.webp" alt="" loading="lazy">
       </section>
@@ -127,8 +128,8 @@
           <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
           <p class="scene__text">Tu compañía es lo más especial. Si deseas tener un detalle con Luna, puedes consultar sus listas de regalos.</p>
           <div class="gift-actions">
-            <a class="button button--rose" id="gift-amazon" href="#" target="_blank" rel="noopener noreferrer" hidden>Ver lista de Amazon <span aria-hidden="true">↗</span></a>
-            <a class="button button--sage" id="gift-liverpool" href="#" target="_blank" rel="noopener noreferrer" hidden>Ver mesa de Liverpool <span aria-hidden="true">↗</span></a>
+            <a class="button button--outline" id="gift-amazon" href="#" target="_blank" rel="noopener noreferrer" hidden><span class="brand-mark brand-mark--amazon" aria-hidden="true">a</span> Lista de Amazon <span class="button__ext" aria-hidden="true">↗</span></a>
+            <a class="button button--outline" id="gift-liverpool" href="#" target="_blank" rel="noopener noreferrer" hidden><span class="brand-mark brand-mark--liverpool" aria-hidden="true">▥</span> Mesa de Liverpool <span class="button__ext" aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
@@ -139,9 +140,9 @@
           <h2 id="rsvp-heading">¿Nos <em>acompañas?</em></h2>
           <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
           <p class="scene__text">Nos encantará compartir contigo un día lleno de cariño y pequeños momentos mágicos.</p>
-          <a class="button button--rose" id="rsvp-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+          <a class="button button--rose" id="rsvp-link" aria-label="Confirmar asistencia por WhatsApp al 722 828 0072" href="#" target="_blank" rel="noopener noreferrer" hidden>
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3.6A11.8 11.8 0 0 0 12 0 12 12 0 0 0 1.6 18L0 24l6.1-1.6A12 12 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.6-8.4ZM12 21.9a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.6.9 1-3.5-.2-.4A9.9 9.9 0 1 1 12 21.9Zm5.5-7.4c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.3-.7.1a8 8 0 0 1-3.9-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.6L9 7.2c-.2-.4-.4-.4-.7-.4h-.6c-.2 0-.5.1-.8.4a3.4 3.4 0 0 0-1.1 2.5c0 1.5 1.1 2.9 1.2 3.1 1.4 2.2 3.1 1.4 2.2 3.5 3.9 5.9 4.6 2.5.8 3.4.7 4.1.6 1.2-.2 2.3-1.1 2.6-2.2.2-.6.2-1.1.1-1.2s-.2-.2-.5-.4Z"/></svg>
-            Confirmar por WhatsApp <span aria-hidden="true">↗</span>
+            722 828 0072 <span aria-hidden="true">↗</span>
           </a>
           <p class="pending" id="rsvp-pending">La confirmación estará disponible próximamente.</p>
           <p class="rsvp-deadline" id="rsvp-deadline" hidden></p>

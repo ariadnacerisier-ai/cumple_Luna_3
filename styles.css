@@ -78,3 +78,84 @@ h1,h2 {font-size:clamp(32px,8.8vw,43px);line-height:1.12;margin:13px auto}
  .welcome-mushroom{width:120px}
 }
 @media(prefers-reduced-motion:reduce){.scene,.deco{animation:none!important}}
+
+
+/* V3 · Botones de acuarela aprobados y destellos mágicos en portada. */
+.button {
+  min-height:47px;
+  border:1.4px solid transparent;
+  border-radius:999px;
+  padding:11px 21px;
+  box-shadow:none;
+  font:400 clamp(15px,4vw,18px)/1.15 'Forum',Georgia,serif;
+  transition:background-color .2s ease,transform .2s ease,border-color .2s ease;
+}
+.button:focus-visible,.cover-enter:focus-visible,.cover-scroll:focus-visible {
+  outline:3px solid #905879;
+  outline-offset:3px;
+}
+.button:active{transform:scale(.985)}
+.button--sage{background:#a1ad82;color:#fff;border-color:#a1ad82}
+.button--rose{background:#bd7c9d;color:#fff;border-color:#bd7c9d}
+.button--outline {
+  background:rgba(255,250,250,.58);
+  color:#774860;
+  border-color:#cf91ae;
+}
+.button--outline:hover{background:#fae9ef}
+.gift-actions {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:23px auto 0;
+  max-width:335px;
+}
+.gift-actions .button {
+  width:100%;
+  min-width:0;
+  max-width:335px;
+  margin:0;
+  justify-content:center;
+  padding:11px 13px;
+  font-size:17px;
+  white-space:nowrap;
+}
+.button__ext{font-size:18px;line-height:1}
+.brand-mark{display:inline-flex;position:relative;align-items:center;justify-content:center;width:23px;height:23px;flex:0 0 23px;color:#c27c9c}
+.brand-mark--amazon{font:700 23px/1 Georgia,serif;color:#8c5c6f}
+.brand-mark--amazon::after{
+  content:"";position:absolute;left:5px;bottom:0;width:15px;height:5px;
+  border-bottom:2px solid #d6a55d;border-radius:50%;transform:rotate(-10deg);
+}
+.brand-mark--liverpool{font-size:23px;font-weight:400;line-height:1}
+#dress-link{margin:20px auto 3px;max-width:100%;font-size:17px}
+#maps-link{margin:20px auto 4px}
+#rsvp-link{font-size:18px;letter-spacing:.02em}
+.magic-dust{position:absolute;inset:0;overflow:hidden;z-index:4;pointer-events:none;contain:paint}
+.cover-years{z-index:5}
+.cover-enter,.cover-scroll{z-index:6}
+.magic-dust__particle {
+  position:absolute;left:var(--x);top:var(--y);
+  width:var(--size);height:var(--size);
+  background:var(--tone);border-radius:50%;
+  box-shadow:0 0 7px 2px var(--glow);
+  opacity:0;will-change:transform,opacity;
+  animation:magic-dust-rise var(--duration) ease-out var(--delay) both;
+}
+.magic-dust__particle--star{
+  width:calc(var(--size) * 1.6);
+  height:calc(var(--size) * 1.6);
+  clip-path:polygon(50% 0,60% 38%,100% 50%,60% 62%,50% 100%,40% 62%,0 50%,40% 38%);
+}
+@keyframes magic-dust-rise{
+  0%{opacity:0;transform:translate3d(0,8px,0) scale(.25)}
+  18%{opacity:.92}
+  65%{opacity:.72}
+  100%{opacity:0;transform:translate3d(var(--dx),var(--dy),0) scale(.28)}
+}
+@media(prefers-reduced-motion:reduce){
+  .magic-dust{display:none}
+  .button{transition:none}
+}

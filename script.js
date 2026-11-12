@@ -113,19 +113,62 @@
     revealNodes.forEach(node => observer.observe(node));
   }
 
-  // Pequeño efecto de pétalos al entrar. Se ejecuta sólo tras una interacción real.
-  const enter = document.querySelector('.cover-enter');
-  const layer = document.querySelector('.petal-layer');
-  enter?.addEventListener('click', () => {
-    if (prefersReducedMotion || !layer) return;
-    for (let i = 0; i < 11; i++) {
-      const petal = document.createElement('span');
-      petal.className = 'petal';
-      petal.style.setProperty('--left', `${15 + Math.random() * 70}%`);
-      petal.style.setProperty('--delay', `${Math.random() * 0.5}s`);
-      petal.style.setProperty('--drift', `${Math.round(Math.random() * 180 - 90)}px`);
-      layer.appendChild(petal);
-      petal.addEventListener('animationend', () => petal.remove(), {once: true});
+
+  // Polvos mágicos de la portada: una lluvia delicada al cargar
+  // y un pequeño destello cuando se toca "Descubre la magia".
+  // CSS animations + elementos efímeros: sin dependencias ni imágenes extra.
+  const dustLayer = document.getElementById('magic-dust');
+  const coverImage = document.querySelector('.cover-art img');
+  const magicColors = [
+    ['#efd197', 'rgba(232,179,91,.48)'],
+    ['#f2aecb', 'rgba(234,139,177,.42)'],
+    ['#cdb5ed', 'rgba(178,146,228,.45)'],
+    ['#f7e9c4', 'rgba(242,204,135,.35)']
+  ];
+  let introPlayed = false;
+  const addMagicDust = (count, burst = false) => {
+    if (prefersReducedMotion || !dustLayer) return;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('span');
+      const color = magicColors[Math.floor(Math.random() * magicColors.length)];
+      const x = burst ? 43 + Math.random() * 14 : 22 + Math.random() * 56;
+      const y = burst ? 86 + Math.random() * 5 : 37 + Math.random() * 42;
+      p.className = 'magic-dust__particle' + (Math.random() > 0.72 ? ' magic-dust__particle--star' : '');
+      p.style.setProperty('--x', x.toFixed(1) + '%');
+      p.style.setProperty('--y', y.toFixed(1) + '%');
+      p.style.setProperty('--dx', Math.round((Math.random() - .5) * (burst ? 175 : 85)) + 'px');
+      p.style.setProperty('--dy', Math.round((burst ? -65 : -40) - Math.random() * (burst ? 90 : 95)) + 'px');
+      p.style.setProperty('--size', (2 + Math.random() * (burst ? 5 : 4)).toFixed(1) + 'px');
+      p.style.setProperty('--delay', (burst ? 0 : Math.random() * .65).toFixed(2) + 's');
+      p.style.setProperty('--duration', (1.3 + Math.random() * 1.15).toFixed(2) + 's');
+      p.style.setProperty('--tone', color[0]);
+      p.style.setProperty('--glow', color[1]);
+      dustLayer.appendChild(p);
+      p.addEventListener('animationend', () => p.remove(), { once: true });
     }
+  };
+  const playOpeningMagic = () => {
+    if (introPlayed || prefersReducedMotion) return;
+    introPlayed = true;
+    addMagicDust(26);
+  };
+  if (coverImage?.complete && coverImage.naturalWidth > 0) {
+    window.requestAnimationFrame(playOpeningMagic);
+  } else if (coverImage) {
+    coverImage.addEventListener('load', playOpeningMagic, { once: true });
+  } else {
+    window.addEventListener('load', playOpeningMagic, { once: true });
+  }
+  document.querySelectorAll('.cover-enter, .cover-scroll').forEach(trigger => {
+    trigger.addEventListener('click', event => {
+      if (prefersReducedMotion || !dustLayer) return;
+      event.preventDefault();
+      addMagicDust(24, true);
+      // Permite ver el destello antes de entrar, sin bloquear el scroll.
+      window.setTimeout(() => {
+        document.querySelector('#bienvenida')?.scrollIntoView({behavior:'smooth',block:'start'});
+        if (history.replaceState) history.replaceState(null, '', '#bienvenida');
+      }, 420);
+    });
   });
 })();
