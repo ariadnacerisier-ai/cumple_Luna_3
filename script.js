@@ -14,7 +14,7 @@
   if (validDate) {
     const loc = 'es-MX';
     const zone = 'America/Mexico_City';
-    setText('event-date', new Intl.DateTimeFormat(loc, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: zone }).format(eventDate));
+    setText('event-date', new Intl.DateTimeFormat(loc, { day: 'numeric', month: 'long', year: 'numeric', timeZone: zone }).format(eventDate));
     setText('event-time', new Intl.DateTimeFormat(loc, { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: zone }).format(eventDate));
   }
   if (typeof config.venueName === 'string' && config.venueName.trim()) {
@@ -84,18 +84,6 @@
     const safeUrl = validWebUrl(url || '');
     if (link && safeUrl) { link.href = safeUrl; link.hidden = false; }
   });
-
-  // Fecha límite RSVP en la fecha local de México, sin conversión de zona horaria.
-  const deadline = String(config.rsvpDeadline || '');
-  if (/^\d{4}-\d{2}-\d{2}$/.test(deadline)) {
-    const [year, month, day] = deadline.split('-').map(Number);
-    const localDate = new Date(year, month - 1, day, 12);
-    if (localDate.getFullYear() === year && localDate.getMonth() === month - 1 && localDate.getDate() === day) {
-      const formatted = new Intl.DateTimeFormat('es-MX', {day:'numeric',month:'long',year:'numeric'}).format(localDate);
-      setText('rsvp-deadline', 'Confirma tu asistencia a más tardar el ' + formatted + '.');
-      if (el('rsvp-deadline')) el('rsvp-deadline').hidden = false;
-    }
-  }
 
   // Animaciones suaves, respetando accesibilidad y preferencia de movimiento reducido.
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

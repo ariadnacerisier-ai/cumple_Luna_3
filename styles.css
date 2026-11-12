@@ -168,10 +168,10 @@ h1,h2 {font-size:clamp(32px,8.8vw,43px);line-height:1.12;margin:13px auto}
 .scene--welcome .inline-name {
   display: inline-block;
   font-family: 'Allura', cursive;
-  font-size: clamp(43px, 11vw, 57px);
+  font-size: clamp(68px, 19vw, 92px);
   font-weight: 400;
-  line-height: .85;
+  line-height: 1;
   color: #d4849e;
   white-space: nowrap;
-  vertical-align: -0.14em;
+  vertical-align: -0.19em;
 }
