@@ -159,3 +159,19 @@ h1,h2 {font-size:clamp(32px,8.8vw,43px);line-height:1.12;margin:13px auto}
   .magic-dust{display:none}
   .button{transition:none}
 }
+
+/* Bienvenida · Luna como parte de la frase, con la caligrafía de portada. */
+.scene--welcome .scene__text--celebration {
+  margin-top: 14px;
+  line-height: 1.38;
+}
+.scene--welcome .inline-name {
+  display: inline-block;
+  font-family: 'Allura', cursive;
+  font-size: clamp(43px, 11vw, 57px);
+  font-weight: 400;
+  line-height: .85;
+  color: #d4849e;
+  white-space: nowrap;
+  vertical-align: -0.14em;
+}
