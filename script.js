@@ -92,7 +92,7 @@
     const localDate = new Date(year, month - 1, day, 12);
     if (localDate.getFullYear() === year && localDate.getMonth() === month - 1 && localDate.getDate() === day) {
       const formatted = new Intl.DateTimeFormat('es-MX', {day:'numeric',month:'long',year:'numeric'}).format(localDate);
-      setText('rsvp-deadline', 'Confirma tu asistencia antes del ' + formatted + '.');
+      setText('rsvp-deadline', 'Confirma tu asistencia a más tardar el ' + formatted + '.');
       if (el('rsvp-deadline')) el('rsvp-deadline').hidden = false;
     }
   }
