@@ -24,7 +24,14 @@
     setText('event-address', config.venueAddress.trim());
   }
 
-  // La iglesia está pendiente de confirmación y no mostramos ubicaciones por ahora.
+  // La ubicación de la iglesia sigue pendiente; sólo enlazamos el lugar de recepción.
+  const venueMapsUrl = validWebUrl(config.mapsUrl || '');
+  const venueMapLink = el('venue-map');
+  if (venueMapLink && venueMapsUrl) {
+    venueMapLink.href = venueMapsUrl;
+    venueMapLink.hidden = false;
+  }
+
   if (typeof config.massTime === 'string' && config.massTime.trim()) {
     setText('mass-time', config.massTime.trim());
   }

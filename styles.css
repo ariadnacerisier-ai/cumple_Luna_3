@@ -1088,3 +1088,26 @@ body, .page-shell { background-color: #fff4f1; }
   outline:3px solid #935d84;
   outline-offset:3px;
 }
+
+/* V21 · Ubicación del salón confirmada; sin botón para la iglesia pendiente. */
+.scene--details #venue-map.button--storybook {
+  width:min(100%,270px);
+  min-height:58px;
+  margin:17px auto 4px !important;
+  padding:9px 18px;
+  gap:10px;
+  text-decoration:none;
+}
+.scene--details #venue-map .button__label {
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(13px,3.7vw,15px);
+  font-weight:500;
+  white-space:nowrap;
+}
+.scene--details #venue-map svg {
+  width:20px;
+  height:20px;
+  flex:0 0 20px;
+  color:#874477;
+}
+.scene--details #venue-map[hidden] { display:none !important; }
