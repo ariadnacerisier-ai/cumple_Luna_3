@@ -1192,15 +1192,19 @@ body, .page-shell { background-color: #fff4f1; }
 }
 
 
-/* V24 · Portada consolidada: un solo archivo con fotografía original y CTA cursivo.
-   No superponer imágenes adicionales; solo la zona táctil transparente. */
+/* V25 · Portada completa aprobada, sin capas ilustradas ni botones superpuestos.
+   El botón está pintado una sola vez en el archivo WebP y su enlace HTML es invisible. */
+.cover-art--full-art > img {
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 90%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 90%,transparent 100%);
+}
 .cover-art--full-art .cover-enter--hotspot {
-  inset:71.25% auto auto 22%;
-  width:56%;
-  height:12.25%;
+  inset:70.2% auto auto 20%;
+  width:60%;
+  height:12.7%;
 }
 .cover-art--full-art .cover-scroll--hotspot {
-  inset:84.75% auto auto 26%;
-  width:48%;
-  height:6.5%;
+  inset:85.2% auto auto 24%;
+  width:52%;
+  height:5.5%;
 }
