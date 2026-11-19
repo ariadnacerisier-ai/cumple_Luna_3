@@ -1111,3 +1111,82 @@ body, .page-shell { background-color: #fff4f1; }
   color:#874477;
 }
 .scene--details #venue-map[hidden] { display:none !important; }
+
+/* V22 · Botones ilustrados aprobados: acuarela, borde dorado, flores y mariposas.
+   Cada imagen es un enlace real, con área táctil completa y transparente. */
+.illustrated-button {
+  display:block;
+  position:relative;
+  box-sizing:border-box;
+  width:min(100%,360px);
+  max-width:100%;
+  height:auto;
+  margin:16px auto 6px;
+  padding:0;
+  border:0;
+  border-radius:999px;
+  background:transparent;
+  box-shadow:none;
+  line-height:0;
+  text-decoration:none;
+  cursor:pointer;
+  -webkit-tap-highlight-color:rgba(148,85,122,.12);
+  touch-action:manipulation;
+  transition:transform .18s ease,filter .18s ease;
+}
+.illustrated-button > img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  margin:0;
+  padding:0;
+  border:0;
+  pointer-events:none;
+}
+.illustrated-button[hidden] { display:none !important; }
+.illustrated-button:focus-visible {outline:3px solid #864d75;outline-offset:3px;}
+.illustrated-button:active {transform:scale(.975);}
+@media (hover:hover){
+  .illustrated-button:hover {filter:saturate(1.06) brightness(1.01);}
+}
+.scene--details #venue-map.illustrated-button {
+  display:block;
+  width:min(100%,360px);
+  margin:16px auto 7px !important;
+  min-height:0;
+  padding:0;
+}
+.scene--dress #dress-link.illustrated-button {
+  width:min(100%,360px);
+  margin:18px auto 6px;
+}
+.scene--gifts .gift-actions {
+  width:100%;
+  max-width:360px;
+  gap:8px;
+  margin-top:17px;
+  align-items:center;
+}
+.scene--gifts .gift-actions .illustrated-button {
+  width:100%;
+  max-width:360px;
+  min-height:0;
+  margin:0 auto;
+  padding:0;
+}
+.scene--rsvp #rsvp-link.illustrated-button {
+  display:block;
+  width:min(100%,365px);
+  min-height:0;
+  margin:16px auto 8px;
+  padding:0;
+}
+.scene--details #venue-map.illustrated-button[hidden],
+.scene--rsvp #rsvp-link.illustrated-button[hidden]{
+  display:none !important;
+}
+@media (prefers-reduced-motion:reduce){
+  .illustrated-button {transition:none;}
+}
