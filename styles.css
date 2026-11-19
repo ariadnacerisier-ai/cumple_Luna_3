@@ -280,3 +280,66 @@ h1,h2 {font-size:clamp(32px,8.8vw,43px);line-height:1.12;margin:13px auto}
   .scene--story{padding-left:20px;padding-right:20px}
   .scene--details{padding-left:18px;padding-right:18px}
 }
+
+/* Ajuste de ritmo vertical y tamaño del calendario (noviembre 2026). */
+/* Las pantallas interiores no necesitan llenar 100vh cuando su contenido es breve. */
+.scene {
+  min-height: 0;
+  padding-top: clamp(42px, 8vw, 62px);
+  padding-bottom: clamp(48px, 9vw, 68px);
+}
+/* La historia es más extensa: reducimos solo los márgenes, no el texto. */
+.scene--story {
+  min-height: 0;
+  padding-top: clamp(48px, 9vw, 64px);
+  padding-bottom: clamp(52px, 10vw, 70px);
+}
+.scene--story .story-copy p { margin-bottom: 20px; }
+.scene--story .story-copy .story-signature { margin-top: 30px; }
+/* Apertura de la bienvenida sin espacios vacíos extras. */
+.scene--welcome {
+  min-height: 0;
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+.scene--welcome .welcome-sky { margin-bottom: 0; }
+.scene--welcome .welcome-mushroom { margin-top: 4px; }
+/* Itinerario compacto: calendario de 18px, no ilustración protagonista. */
+.scene--details {
+  min-height: 0;
+  padding-top: clamp(46px, 9vw, 60px);
+  padding-bottom: clamp(52px, 10vw, 68px);
+}
+.scene--details .event-day {
+  gap: 9px;
+  margin: 5px auto 14px;
+}
+.scene--details .event-day svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  flex: 0 0 18px;
+}
+.scene--details .event-day .detail-value {
+  font-size: clamp(18px, 4.7vw, 22px);
+  line-height: 1.25;
+}
+.scene--details .event-stop { padding-top: 7px; padding-bottom: 6px; }
+.scene--details .event-connector { margin: 2px auto; }
+.scene--details .event-stop__map { margin-top: 12px!important; }
+/* Las secciones de acciones conservan sus botones, con menor separación exterior. */
+.scene--countdown .countdown { margin: 24px 0 20px; }
+.scene--surprises .scene-bottom-art { margin-top: 0; }
+.scene--gifts .gift-actions { margin-top: 16px; }
+.scene--rsvp .button { margin-top: 14px; }
+/* La despedida conserva su botón al pie, sin convertirse en un bloque interminable. */
+.scene--end {
+  min-height: min(100svh, 680px);
+  padding-top: 52px;
+  padding-bottom: 115px;
+}
+@media (max-width: 360px) {
+  .scene--details { padding-left: 18px; padding-right: 18px; }
+  .scene--details .event-day svg { width: 17px; height: 17px; flex-basis: 17px; min-width: 17px; }
+}
