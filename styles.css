@@ -648,3 +648,50 @@ body, .page-shell, .cover {
 @media(prefers-reduced-motion:reduce){
   .button.button--storybook{transition:none}
 }
+
+/* V15 · Papel de acuarela continuo, inspirado en la portada aprobada. */
+/* La textura vive en UN solo contenedor y no se reinicia por cada sección. */
+:root { --paper: #fff4f1; }
+html { background-color: #fff4f1; }
+body, .page-shell { background-color: #fff4f1; }
+.invitation {
+  background-color: #fff4f1;
+  background-image: url("assets/fondo-acuarela-rosa.svg");
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% 1700px;
+}
+/* Eliminar los rellenos sólidos y las franjas entre apartados. */
+.invitation > .scene,
+.invitation > .scene:nth-of-type(odd),
+.invitation > .scene--gifts {
+  background: transparent !important;
+  background-image: none !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+/* La imagen de portada mantiene su composición, pero no fuerza
+   un alto adicional que provoque un rectángulo vacío al terminar. */
+.invitation > .cover {
+  min-height: 0 !important;
+  background: transparent;
+}
+/* Fundir el pie de la portada con la primera zona del papel acuarela. */
+.cover-art::after {
+  height: clamp(36px, 8vw, 56px);
+  background: linear-gradient(to bottom,
+    rgba(255,244,241,0) 0%,
+    rgba(255,244,241,.28) 48%,
+    rgba(255,244,241,.80) 82%,
+    #fff4f1 100%);
+}
+.cover-corner-wash {
+  background: radial-gradient(ellipse at 40% 62%,
+    rgba(255,236,242,.88) 0%,
+    rgba(255,244,241,.98) 80%),
+    #fff4f1;
+}
+/* Fuera de la tarjeta móvil, mantener un matiz que armonice con el papel. */
+@media (min-width:650px) {
+  body { background-color:#f8edf0; }
+}

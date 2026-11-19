@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="1700" viewBox="0 0 760 1700" preserveAspectRatio="none" role="img" aria-label="Papel acuarela rosa pastel, lavanda y marfil">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff4f1"/>
+      <stop offset=".17" stop-color="#fbe9ef"/>
+      <stop offset=".38" stop-color="#f5e8f4"/>
+      <stop offset=".60" stop-color="#fbe7ee"/>
+      <stop offset=".82" stop-color="#fff0ee"/>
+      <stop offset="1" stop-color="#fff4f1"/>
+    </linearGradient>
+    <radialGradient id="pink">
+      <stop stop-color="#eb9fbc" stop-opacity=".39"/>
+      <stop offset=".47" stop-color="#f5bcd3" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#f8d4e2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lilac">
+      <stop stop-color="#c9b4e9" stop-opacity=".39"/>
+      <stop offset=".5" stop-color="#e1cbed" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#e8d9f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="peach">
+      <stop stop-color="#ffd9d5" stop-opacity=".42"/>
+      <stop offset=".58" stop-color="#ffe7df" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#fff1ea" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="wash" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".013 .018" numOctaves="2" seed="7" result="wave"/>
+      <feDisplacementMap in="SourceGraphic" in2="wave" scale="39" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".46" numOctaves="2" seed="17" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 .68 0 0 0 0 .45 0 0 0 0 .54 .16 .17 .13 0 -.20"/>
+    </filter>
+  </defs>
+  <rect width="760" height="1700" fill="url(#paper)"/>
+  <g filter="url(#wash)">
+    <ellipse cx="90" cy="285" rx="360" ry="260" fill="url(#pink)"/>
+    <ellipse cx="680" cy="485" rx="380" ry="320" fill="url(#lilac)"/>
+    <ellipse cx="250" cy="720" rx="340" ry="250" fill="url(#peach)"/>
+    <ellipse cx="35" cy="1030" rx="375" ry="310" fill="url(#lilac)"/>
+    <ellipse cx="645" cy="1190" rx="390" ry="295" fill="url(#pink)"/>
+    <ellipse cx="260" cy="1420" rx="350" ry="235" fill="url(#peach)"/>
+  </g>
+  <g opacity=".19">
+    <ellipse cx="625" cy="870" rx="190" ry="240" fill="url(#pink)"/>
+    <ellipse cx="170" cy="390" rx="155" ry="250" fill="url(#lilac)"/>
+    <ellipse cx="500" cy="1500" rx="205" ry="175" fill="url(#lilac)"/>
+  </g>
+  <rect width="760" height="1700" filter="url(#grain)" opacity=".55"/>
+</svg>
