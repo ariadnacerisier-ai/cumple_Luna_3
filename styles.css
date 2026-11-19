@@ -175,3 +175,21 @@ h1,h2 {font-size:clamp(32px,8.8vw,43px);line-height:1.12;margin:13px auto}
   white-space: nowrap;
   vertical-align: -0.19em;
 }
+
+/* Despedida: el vínculo vuelve al inicio desde el pie de la última pantalla. */
+.scene--end {
+  padding-bottom: 126px;
+}
+.scene--end .text-next--return {
+  position: absolute;
+  bottom: max(35px, calc(env(safe-area-inset-bottom) + 20px));
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 20px;
+  z-index: 3;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.4;
+}
