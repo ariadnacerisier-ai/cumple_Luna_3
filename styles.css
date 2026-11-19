@@ -695,3 +695,206 @@ body, .page-shell { background-color: #fff4f1; }
 @media (min-width:650px) {
   body { background-color:#f8edf0; }
 }
+
+/* V16 · Portada de Luna reconstruida con texto real y fotografía original. */
+/* La acuarela global es el único fondo, también detrás del retrato. */
+.invitation > .cover.cover--storybook {
+  display:block;
+  position:relative;
+  min-height:0!important;
+  padding:clamp(18px,4.6vw,30px) clamp(12px,3.6vw,22px) clamp(30px,6vw,42px);
+  background:transparent!important;
+  overflow:hidden;
+  text-align:center;
+}
+.cover--storybook .cover__inner {
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:470px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.cover--storybook .cover__heading {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  margin:0;
+  font-weight:400;
+  line-height:1;
+}
+.cover--storybook .cover__arc {
+  display:block;
+  width:min(100%,460px);
+  height:auto;
+  overflow:visible;
+  margin:0 auto;
+}
+.cover--storybook .cover__arc text {
+  font:400 39px 'Forum',Georgia,serif;
+  fill:#784269;
+  letter-spacing:.5px;
+}
+.cover--storybook .cover__name {
+  display:block;
+  position:relative;
+  z-index:1;
+  font:400 clamp(98px,25vw,142px)/.70 'Allura',cursive;
+  letter-spacing:-.026em;
+  color:#e879a7;
+  text-shadow:0 1px 0 rgba(255,255,255,.28);
+  margin:-2px auto 0;
+  padding:0 12px 10px;
+  transform:translateX(-3px);
+}
+.cover--storybook .cover__name-flourish {
+  display:flex;
+  width:min(85%,305px);
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:1px auto 10px;
+  color:#e88fac;
+}
+.cover--storybook .cover__name-flourish span,
+.cover--storybook .cover__scroll-ornament span {
+  height:1px;
+  flex:1;
+  background:linear-gradient(90deg,transparent,#ce9eb6 40%,#ce9eb6 60%,transparent);
+}
+.cover--storybook .cover__name-flourish b {
+  font-size:18px;
+  line-height:1;
+  font-weight:400;
+}
+.cover--storybook .cover__years {
+  margin:0 auto 4px;
+  font:400 clamp(17px,4.3vw,22px)/1.1 'Forum',Georgia,serif;
+  color:#76446d;
+  letter-spacing:.28em;
+  padding-left:.28em;
+  white-space:nowrap;
+}
+.cover--storybook .cover-art.cover__portrait {
+  position:relative;
+  z-index:1;
+  width:min(100%,452px);
+  margin:8px auto -4px;
+  line-height:0;
+  isolation:isolate;
+}
+.cover--storybook .cover__portrait img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  mix-blend-mode:normal;
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+.cover--storybook .cover__portrait::after {content:none!important;}
+.cover--storybook .magic-dust {
+  display:block;
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+}
+.cover--storybook .cover-enter.button.cover__button {
+  position:relative;
+  z-index:7;
+  top:auto;
+  bottom:auto;
+  left:auto;
+  right:auto;
+  display:inline-flex;
+  width:min(84%,310px);
+  min-width:0;
+  height:auto;
+  min-height:85px;
+  margin:7px auto 0;
+  padding:10px 27px 8px;
+  justify-content:center;
+  gap:15px;
+  background:
+    radial-gradient(ellipse at 24% 22%,rgba(255,253,250,.78),transparent 52%),
+    radial-gradient(ellipse at 84% 89%,rgba(233,170,210,.32),transparent 60%),
+    linear-gradient(145deg,#f6d0e3 0%,#ffe4ed 48%,#ecc6df 100%);
+  border:1.5px solid #d9b672;
+  border-radius:999px;
+  box-shadow:inset 0 0 0 2px rgba(255,253,240,.5),0 5px 18px rgba(136,84,117,.1);
+  color:#79446a;
+  text-decoration:none;
+}
+.cover--storybook .cover__button-copy {
+  display:flex;
+  flex-direction:column;
+  font:400 clamp(36px,9.2vw,43px)/.72 'Allura',cursive;
+  color:#744269;
+  white-space:nowrap;
+  text-align:center;
+  transform:translateY(2px);
+}
+.cover--storybook .cover__button-copy span {margin-top:7px;}
+.cover--storybook .cover__button .button__arrow {
+  font:400 40px/1 'Forum',Georgia,serif;
+  color:#894c7d;
+  flex:0 0 auto;
+  margin-left:0;
+  transform:translateY(-2px);
+}
+.cover--storybook .cover__scroll-ornament {
+  display:flex;
+  align-items:center;
+  width:min(52%,215px);
+  gap:11px;
+  margin:12px auto 2px;
+  color:#e39bae;
+}
+.cover--storybook .cover__scroll-ornament b {
+  font-size:17px;
+  line-height:1;
+  font-weight:400;
+}
+.cover--storybook .cover-scroll.cover__scroll {
+  display:inline-flex;
+  position:relative;
+  inset:auto;
+  top:auto;
+  right:auto;
+  bottom:auto;
+  left:auto;
+  height:auto;
+  margin:0 auto;
+  padding:0 4px;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+  background:none;
+  color:#7b4a72;
+  text-decoration:none;
+  font:400 clamp(15px,4.3vw,19px)/1.3 'Forum',Georgia,serif;
+  letter-spacing:.01em;
+  white-space:nowrap;
+}
+.cover--storybook .cover__scroll span {font-size:23px;line-height:1;}
+.cover--storybook .cover-enter:focus-visible,
+.cover--storybook .cover-scroll:focus-visible {
+  outline:3px solid #965b82;
+  outline-offset:4px;
+}
+@media (max-width:380px){
+  .invitation > .cover.cover--storybook {padding-left:10px;padding-right:10px;}
+  .cover--storybook .cover__arc text {font-size:36px;}
+  .cover--storybook .cover__name {font-size:clamp(88px,25vw,110px);}
+  .cover--storybook .cover__name-flourish {margin-bottom:7px;}
+  .cover--storybook .cover__years {font-size:16px;}
+  .cover--storybook .cover-enter.button.cover__button {min-height:76px;width:min(85%,295px);}
+}
+@media (prefers-reduced-motion:reduce){
+  .cover--storybook .cover-enter.button.cover__button {transition:none;}
+}

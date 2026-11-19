@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Sans:wght@400;500;600&family=Forum&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=acuarela15">
+  <link rel="stylesheet" href="styles.css?v=portada16">
   <script src="config.js" defer></script>
   <script src="script.js" defer></script>
 </head>
@@ -22,15 +22,33 @@
   <a class="skip-link" href="#historia">Ir al contenido</a>
   <div class="page-shell">
     <main class="invitation">
-      <section class="cover" id="portada" aria-label="Portada del jardín encantado de Luna">
-        <div class="cover-art">
-          <img src="assets/portada-luna-aprobada.webp" width="720" height="1080" alt="Portada del jardín encantado de Luna: fotografía de Luna con maquillaje floral y vestido pastel entre un hada, mariposas y flores de acuarela; Mis 3 años" fetchpriority="high">
-          <span class="cover-corner-wash cover-corner-wash--left" aria-hidden="true"></span>
-          <span class="cover-corner-wash cover-corner-wash--right" aria-hidden="true"></span>
-          <div class="magic-dust" id="magic-dust" aria-hidden="true"></div>
-          <a class="cover-enter" href="#historia" aria-label="Descubre la magia y conoce la historia de Luna"><span class="sr-only">Descubre la magia</span></a>
+      <section class="cover cover--storybook" id="portada" aria-labelledby="cover-heading">
+        <div class="cover__inner">
+          <h1 class="cover__heading" id="cover-heading">
+            <span class="sr-only">El jardín encantado de </span>
+            <svg class="cover__arc" viewBox="0 0 500 110" role="presentation" aria-hidden="true" focusable="false">
+              <defs>
+                <path id="luna-title-arc" d="M 24,100 Q 250,-16 476,100"/>
+              </defs>
+              <text text-anchor="middle"><textPath href="#luna-title-arc" startOffset="50%">El jardín encantado de</textPath></text>
+            </svg>
+            <span class="cover__name">Luna</span>
+          </h1>
+          <div class="cover__name-flourish" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+          <p class="cover__years">MIS 3 AÑOS</p>
+
+          <div class="cover-art cover__portrait">
+            <img src="assets/luna-retrato-floral-transparente.webp" width="690" height="742" alt="Luna, con su maquillaje floral y alas de hada, enmarcada por flores rosas, una hadita y una mariposa" fetchpriority="high">
+            <div class="magic-dust" id="magic-dust" aria-hidden="true"></div>
+          </div>
+
+          <a class="cover-enter button button--storybook cover__button" href="#historia" aria-label="Descubre la magia y entra a la invitación">
+            <span class="cover__button-copy">Descubre<span>la magia</span></span>
+            <span class="button__arrow" aria-hidden="true">›</span>
+          </a>
+          <div class="cover__scroll-ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+          <a class="cover-scroll cover__scroll" href="#historia" aria-label="Desliza para descubrir la historia de Luna">Desliza para descubrir <span aria-hidden="true">↓</span></a>
         </div>
-        <a class="cover-scroll cover-scroll--hit-area" href="#historia" aria-label="Desliza para descubrir la historia de Luna"><span class="sr-only">Desliza para descubrir</span></a>
       </section>
 
       <section class="scene scene--story" id="historia" aria-labelledby="story-heading">
