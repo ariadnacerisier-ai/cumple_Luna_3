@@ -397,3 +397,51 @@ body, .page-shell, .cover {
 .scene--story {
   padding-top: clamp(30px, 6vw, 42px);
 }
+
+/* Portada continua: ocultamos las ilustraciones de las esquinas bajas
+   mediante veladuras suaves; el retrato original NO se modifica. */
+.cover-art{position:relative}
+.cover-corner-wash{
+  position:absolute;bottom:-1px;z-index:3;
+  height:25%;width:33.5%;pointer-events:none;
+  background:radial-gradient(ellipse at 40% 62%,
+    rgba(253,232,234,.94) 0%,rgba(252,247,243,.99) 80%),#fcf7f3;
+}
+.cover-corner-wash--left{
+  left:-1.5%;
+  -webkit-mask-image:radial-gradient(ellipse 94% 98% at 0% 82%,#000 55%,rgba(0,0,0,.97) 71%,transparent 100%);
+  mask-image:radial-gradient(ellipse 94% 98% at 0% 82%,#000 55%,rgba(0,0,0,.97) 71%,transparent 100%);
+}
+.cover-corner-wash--right{
+  right:-1.5%;
+  -webkit-mask-image:radial-gradient(ellipse 94% 98% at 100% 82%,#000 55%,rgba(0,0,0,.97) 71%,transparent 100%);
+  mask-image:radial-gradient(ellipse 94% 98% at 100% 82%,#000 55%,rgba(0,0,0,.97) 71%,transparent 100%);
+}
+.cover-art::after{
+  z-index:4;
+  height:clamp(62px,14vw,94px);
+  background:linear-gradient(to bottom,transparent 0%,rgba(252,247,243,.12) 28%,rgba(252,247,243,.76) 76%,var(--paper) 100%);
+}
+.cover-enter,.cover-scroll.cover-scroll--hit-area{z-index:7}
+/* Los elementos originales aparecen ahora al final, enmascarados con
+   bordes de acuarela. Usar la imagen aprobada impide cambios al rostro. */
+.scene--end{min-height:0;padding-top:52px;padding-bottom:110px;justify-content:flex-start}
+.farewell-garden{
+  width:min(100%,360px);
+  display:flex;align-items:end;justify-content:space-between;
+  height:clamp(142px,43vw,200px);
+  margin:22px auto 14px;pointer-events:none;
+}
+.farewell-garden__house,.farewell-garden__rabbit{
+  display:block;width:42%;height:100%;flex:0 0 42%;
+  background-image:url("assets/portada-luna-aprobada.webp");
+  background-size:340% auto;
+  background-repeat:no-repeat;
+  -webkit-mask-image:radial-gradient(ellipse 77% 84% at 50% 72%,#000 45%,rgba(0,0,0,.82) 67%,transparent 100%);
+  mask-image:radial-gradient(ellipse 77% 84% at 50% 72%,#000 45%,rgba(0,0,0,.82) 67%,transparent 100%);
+}
+.farewell-garden__house{background-position:left bottom}
+.farewell-garden__rabbit{background-position:right bottom}
+.scene--details .event-stop{padding-block:12px}
+.scene--details .event-stop__title{margin-bottom:5px}
+.scene--details .event-stop__venue{margin-bottom:4px}

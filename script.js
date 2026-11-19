@@ -24,25 +24,9 @@
     setText('event-address', config.venueAddress.trim());
   }
 
-  // Misa previa a la celebración, con ubicación independiente.
+  // La iglesia está pendiente de confirmación y no mostramos ubicaciones por ahora.
   if (typeof config.massTime === 'string' && config.massTime.trim()) {
     setText('mass-time', config.massTime.trim());
-  }
-  if (typeof config.massVenueName === 'string' && config.massVenueName.trim()) {
-    setText('mass-venue', config.massVenueName.trim());
-  }
-  const massMaps = validWebUrl(config.massMapsUrl || '');
-  if (massMaps && el('mass-maps-link')) {
-    el('mass-maps-link').href = massMaps;
-    el('mass-maps-link').hidden = false;
-  }
-
-  const maps = validWebUrl(config.mapsUrl || '');
-  if (maps) {
-    const link = el('maps-link');
-    link.href = maps;
-    link.hidden = false;
-    el('maps-pending').hidden = true;
   }
 
   // Cuenta regresiva real. Se oculta cuando aún no se conoce la fecha.

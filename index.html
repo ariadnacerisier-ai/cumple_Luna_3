@@ -25,6 +25,8 @@
       <section class="cover" id="portada" aria-label="Portada del jardín encantado de Luna">
         <div class="cover-art">
           <img src="assets/portada-luna-aprobada.webp" width="720" height="1080" alt="Portada del jardín encantado de Luna: fotografía de Luna con maquillaje floral y vestido pastel entre un hada, mariposas y flores de acuarela; Mis 3 años" fetchpriority="high">
+          <span class="cover-corner-wash cover-corner-wash--left" aria-hidden="true"></span>
+          <span class="cover-corner-wash cover-corner-wash--right" aria-hidden="true"></span>
           <div class="magic-dust" id="magic-dust" aria-hidden="true"></div>
           <a class="cover-enter" href="#historia" aria-label="Descubre la magia y conoce la historia de Luna"><span class="sr-only">Descubre la magia</span></a>
         </div>
@@ -75,18 +77,13 @@
           <div class="event-itinerary" aria-label="Itinerario del cumpleaños">
             <article class="event-stop">
               <p class="event-stop__time" id="mass-time">1:00 p. m.</p>
-              <h3 class="event-stop__title">Misa</h3>
-              <p class="event-stop__venue" id="mass-venue">Iglesia de San Carlos</p>
-              <a class="button button--sage event-stop__map" id="mass-maps-link" href="#" target="_blank" rel="noopener noreferrer" hidden>⌖ Cómo llegar a la misa <span aria-hidden="true">↗</span></a>
+              <h3 class="event-stop__title">Ceremonia religiosa</h3>
             </article>
             <div class="event-connector" aria-hidden="true"><span>✧</span></div>
             <article class="event-stop">
               <p class="event-stop__time" id="event-time">3:00 p. m.</p>
-              <h3 class="event-stop__title">Celebración</h3>
+              <h3 class="event-stop__title">Recepción en</h3>
               <p class="event-stop__venue" id="event-venue">Jardín “El Portal”</p>
-              <p class="detail-meta event-stop__address" id="event-address"></p>
-              <a class="button button--sage event-stop__map" id="maps-link" href="#" target="_blank" rel="noopener noreferrer" hidden>⌖ Cómo llegar al jardín <span aria-hidden="true">↗</span></a>
-              <p class="pending" id="maps-pending" hidden></p>
             </article>
           </div>
         </div>
@@ -166,6 +163,10 @@
           <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
           <p class="signature signature--end">Luna</p>
           <span class="small-caps">MIS 3 AÑOS</span>
+          <div class="farewell-garden" aria-hidden="true">
+            <span class="farewell-garden__house"></span>
+            <span class="farewell-garden__rabbit"></span>
+          </div>
         </div>
         <a class="text-next text-next--return" href="#portada">Volver al inicio <span aria-hidden="true">↑</span></a>
       </section>

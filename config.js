@@ -2,8 +2,6 @@
 window.LUNA_CONFIG = {
   dateTime: "2026-12-20T15:00:00-06:00",
   massTime: "1:00 p. m.",
-  massVenueName: "Iglesia de San Carlos",
-  massMapsUrl: "https://maps.google.com/maps/place//data=!4m2!3m1!1s0x85cd8a3245a3cdb1:0xd68b465e194cdabe?entry=s&sa=X&ved=2ahUKEwitgNPdl5OYAxUXke4BHdPeFDAQ4kB6BAgWEAA&hl=es",
   venueName: "Jardín “El Portal”",
   venueAddress: "Calle Ignacio Zaragoza 415, Bella Vista, 52172 San Salvador Tizatlalli, Méx.",
   mapsUrl: "https://maps.app.goo.gl/ds9by9r6tCwpDaALA?g_st=ic",
