@@ -1191,37 +1191,16 @@ body, .page-shell { background-color: #fff4f1; }
   .illustrated-button {transition:none;}
 }
 
-/* V23 · CTA cursivo aprobado sobre la portada original de Luna.
-   Solo se reemplaza la zona del botón; fotografía y desvanecido intactos. */
-.cover-art--full-art > img.cover-button-replacement {
-  display:block;
-  position:absolute;
-  z-index:5;
-  left:22%;
-  top:70.1%;
-  width:56%;
-  height:auto;
-  max-width:none;
-  margin:0;
-  padding:0;
-  object-fit:contain;
-  border:0;
-  background:transparent;
-  pointer-events:none;
-  user-select:none;
-  -webkit-user-drag:none;
-}
-/* El botón ilustrado completo abre la invitación. */
+
+/* V24 · Portada consolidada: un solo archivo con fotografía original y CTA cursivo.
+   No superponer imágenes adicionales; solo la zona táctil transparente. */
 .cover-art--full-art .cover-enter--hotspot {
-  top:70%;
-  left:21.5%;
-  width:57%;
-  height:13.6%;
-  inset:70% auto auto 21.5%;
+  inset:71.25% auto auto 22%;
+  width:56%;
+  height:12.25%;
 }
-/* El texto inferior mantiene su propio enlace sin invadir el botón principal. */
 .cover-art--full-art .cover-scroll--hotspot {
-  inset:84.8% auto auto 27%;
-  width:46%;
-  height:5.5%;
+  inset:84.75% auto auto 26%;
+  width:48%;
+  height:6.5%;
 }
