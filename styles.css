@@ -359,3 +359,41 @@ h1,h2 {font-size:clamp(32px,8.8vw,43px);line-height:1.12;margin:13px auto}
   background:none;color:transparent;font-size:0;
   z-index:6;
 }
+
+/* Continuidad cromática: portada de acuarela y secciones interiores. */
+:root {
+  --paper: #fcf7f3;
+}
+body, .page-shell, .cover {
+  background-color: var(--paper);
+}
+/* Disuelve suavemente los últimos píxeles de la acuarela en el fondo marfil.
+   La franja no tapa "Descubre la magia" ni el texto "Desliza". */
+.cover-art::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: clamp(54px, 8vw, 76px);
+  background: linear-gradient(
+    to bottom,
+    rgba(252,247,243,0) 0%,
+    rgba(252,247,243,.24) 34%,
+    rgba(252,247,243,.76) 78%,
+    #fcf7f3 100%
+  );
+}
+/* El papel es continuo: sin bordes horizontales ni cambios de tinte. */
+.scene,
+.scene:nth-of-type(odd),
+.scene--gifts {
+  background: var(--paper) !important;
+  background-image: none !important;
+  border-top: 0 !important;
+}
+.scene--story {
+  padding-top: clamp(30px, 6vw, 42px);
+}
