@@ -167,8 +167,8 @@
       addMagicDust(24, true);
       // Permite ver el destello antes de entrar, sin bloquear el scroll.
       window.setTimeout(() => {
-        document.querySelector('#bienvenida')?.scrollIntoView({behavior:'smooth',block:'start'});
-        if (history.replaceState) history.replaceState(null, '', '#bienvenida');
+        document.querySelector('#historia')?.scrollIntoView({behavior:'smooth',block:'start'});
+        if (history.replaceState) history.replaceState(null, '', '#historia');
       }, 420);
     });
   });
