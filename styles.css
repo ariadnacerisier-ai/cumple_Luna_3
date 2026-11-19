@@ -1029,3 +1029,62 @@ body, .page-shell { background-color: #fff4f1; }
   .page-shell {margin-top:0;}
   .cover-art--full-art .cover-scroll--hotspot {display:block;}
 }
+
+/* V20 · Cierre ilustrado a pantalla completa, con desvanecido superior real.
+   El fondo rosa acuarela de la invitación aparece bajo la transparencia. */
+.invitation > .scene.scene--end-art {
+  position:relative;
+  display:block !important;
+  width:100%;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:visible;
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+}
+.scene--end-art .end-art {
+  display:block;
+  position:relative;
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:0;
+  line-height:0;
+  isolation:isolate;
+}
+.scene--end-art .end-art > img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:none;
+  max-height:none;
+  object-fit:contain;
+  margin:0;
+  padding:0;
+  border:0;
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+/* Área táctil transparente sobre “Volver al inicio”, dibujado en la ilustración. */
+.scene--end-art .end-art__return {
+  position:absolute;
+  z-index:4;
+  display:block;
+  top:66.5%;
+  left:25%;
+  width:50%;
+  height:8%;
+  min-height:40px;
+  border:0;
+  border-radius:999px;
+  background:transparent;
+  text-decoration:none;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:rgba(167,101,145,.15);
+}
+.scene--end-art .end-art__return:focus-visible {
+  outline:3px solid #935d84;
+  outline-offset:3px;
+}
