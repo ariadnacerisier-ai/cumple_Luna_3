@@ -445,3 +445,76 @@ body, .page-shell, .cover {
 .scene--details .event-stop{padding-block:12px}
 .scene--details .event-stop__title{margin-bottom:5px}
 .scene--details .event-stop__venue{margin-bottom:4px}
+
+/* v13 · Ilustraciones acuarela WebP con canal alfa real (sin recuadros). */
+.garden-illustration,
+.scene .welcome-sky img,
+.scene .small-butterfly,
+.scene .scene-bottom-art,
+.scene .end-fairy {
+  display:block;
+  object-fit:contain;
+  mix-blend-mode:normal!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+  background:none;
+}
+.scene .welcome-sky {
+  width:min(100%,315px);
+  height:140px;
+  margin:0 auto 6px;
+  justify-content:space-between;
+  align-items:center;
+}
+.scene .welcome-sky img:first-child { width:175px; height:140px; }
+.scene .welcome-sky img:last-child { width:80px; height:90px; }
+.scene--welcome .scene__body {max-width:345px}
+.scene--welcome {padding-bottom:48px}
+.story-butterfly {
+  width:68px;
+  height:68px;
+  margin:15px auto 0;
+  transform:rotate(7deg);
+}
+.detail-door {
+  width:112px;
+  height:128px;
+  margin:0 auto 6px;
+}
+.scene--details {padding-top:42px}
+.scene--countdown .small-butterfly {
+  width:85px;
+  height:78px;
+  margin:10px auto 0;
+  transform:rotate(-8deg);
+}
+.scene--surprises .scene-bottom-art {
+  width:155px;
+  height:185px;
+  margin:14px auto 0;
+}
+.dress-fairy {
+  width:145px;
+  height:174px;
+  margin:9px auto 0;
+}
+.scene--end .end-fairy {
+  width:103px;
+  height:117px;
+  margin:0 auto 8px;
+}
+.scene--end .farewell-scene {
+  display:block;
+  width:min(100%,350px);
+  height:auto;
+  max-height:160px;
+  margin:14px auto 0;
+  object-fit:contain;
+}
+.scene--end {padding-bottom:116px}
+@media(max-width:360px){
+  .scene .welcome-sky { height:115px; }
+  .scene .welcome-sky img:first-child {width:145px;height:116px}
+  .scene .welcome-sky img:last-child {width:72px;height:75px}
+  .detail-door {width:94px;height:109px}
+}
