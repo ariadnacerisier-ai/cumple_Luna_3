@@ -193,3 +193,90 @@ h1,h2 {font-size:clamp(32px,8.8vw,43px);line-height:1.12;margin:13px auto}
   font-size: 17px;
   line-height: 1.4;
 }
+
+/* Historia editorial de Luna Isabella: lectura continua, sin fondos ni adornos superpuestos. */
+.scene--story{
+  min-height:auto;
+  padding:78px 28px 84px;
+  justify-content:flex-start;
+}
+.scene--story .scene__body{max-width:390px}
+.story-content h2{margin:0 auto 14px}
+.story-copy{
+  text-align:center;
+  max-width:360px;
+  margin:0 auto;
+}
+.story-copy p{
+  font-family:'Forum',Georgia,serif;
+  font-size:clamp(19px,5vw,23px);
+  line-height:1.48;
+  margin:0 auto 26px;
+  overflow-wrap:break-word;
+}
+.story-copy strong{font-weight:600;color:#aa6586}
+.story-copy .story-signature{
+  margin:40px auto 0;
+  color:#b46e90;
+  font-size:clamp(20px,5.5vw,25px);
+  font-style:italic;
+}
+/* Itinerario de dos paradas, el mismo 20 de diciembre. */
+.scene--details{min-height:100svh;padding:65px 26px 72px}
+.scene--details .scene__body{max-width:390px}
+.event-day{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;margin:8px auto 23px;
+}
+.event-day svg{width:26px;height:26px;flex:0 0 26px}
+.event-day .detail-value{font-size:clamp(20px,5vw,24px);margin:0}
+.event-itinerary{
+  width:100%;max-width:350px;
+  margin:0 auto;
+  display:flex;flex-direction:column;align-items:stretch;
+}
+.event-stop{
+  padding:11px 10px 9px;
+  text-align:center;
+}
+.event-stop__time{
+  color:#c5819c;
+  font-size:clamp(27px,7vw,34px);
+  line-height:1.1;
+  margin:4px 0 7px;
+}
+.event-stop__title{
+  font-size:clamp(23px,6vw,29px);
+  font-weight:400;
+  line-height:1.15;
+  color:#714966;
+  margin:0 auto 9px;
+}
+.event-stop__venue{
+  font-size:clamp(20px,5.1vw,24px);
+  line-height:1.25;
+  margin:0 auto 6px;
+}
+.event-stop__address{
+  font-size:clamp(16px,4.3vw,19px);
+  line-height:1.35;
+  margin:4px auto 0;
+}
+.event-stop__map{
+  max-width:100%;
+  white-space:normal;
+  margin:14px auto 4px!important;
+  font-size:clamp(15px,4vw,17px);
+  text-align:center;
+}
+.event-connector{
+  width:70%;display:flex;align-items:center;gap:14px;
+  margin:6px auto;color:#d29ba3;
+}
+.event-connector::before,.event-connector::after{
+  content:"";height:1px;background:#e5c9d2;flex:1;
+}
+@media(max-width:360px){
+  .scene--story{padding-left:20px;padding-right:20px}
+  .scene--details{padding-left:18px;padding-right:18px}
+}

@@ -24,6 +24,19 @@
     setText('event-address', config.venueAddress.trim());
   }
 
+  // Misa previa a la celebración, con ubicación independiente.
+  if (typeof config.massTime === 'string' && config.massTime.trim()) {
+    setText('mass-time', config.massTime.trim());
+  }
+  if (typeof config.massVenueName === 'string' && config.massVenueName.trim()) {
+    setText('mass-venue', config.massVenueName.trim());
+  }
+  const massMaps = validWebUrl(config.massMapsUrl || '');
+  if (massMaps && el('mass-maps-link')) {
+    el('mass-maps-link').href = massMaps;
+    el('mass-maps-link').hidden = false;
+  }
+
   const maps = validWebUrl(config.mapsUrl || '');
   if (maps) {
     const link = el('maps-link');
