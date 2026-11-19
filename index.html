@@ -8,13 +8,13 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="El jardín encantado de Luna · Mis 3 años">
   <meta property="og:description" content="Una invitación muy especial, llena de magia y mariposas.">
-  <meta property="og:image" content="https://savetheclick.online/cumple_Luna_3/assets/portada-luna.webp">
+  <meta property="og:image" content="https://savetheclick.online/cumple_Luna_3/assets/portada-luna-aprobada.webp">
   <title>El jardín encantado de Luna · Mis 3 años</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Sans:wght@400;500;600&family=Forum&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=portada10">
   <script src="config.js" defer></script>
   <script src="script.js" defer></script>
 </head>
@@ -24,12 +24,11 @@
     <main class="invitation">
       <section class="cover" id="portada" aria-label="Portada del jardín encantado de Luna">
         <div class="cover-art">
-          <img src="assets/portada-luna.webp" width="850" height="1510" alt="Luna con vestido de hada rosa y alas lila en una invitación de acuarela que dice El jardín encantado de Luna, mis 3 años" fetchpriority="high">
+          <img src="assets/portada-luna-aprobada.webp" width="720" height="1080" alt="Portada del jardín encantado de Luna: fotografía de Luna con maquillaje floral y vestido pastel entre un hada, mariposas y flores de acuarela; Mis 3 años" fetchpriority="high">
           <div class="magic-dust" id="magic-dust" aria-hidden="true"></div>
-          <span class="cover-years" aria-hidden="true">MIS 3 AÑOS</span>
           <a class="cover-enter" href="#historia" aria-label="Descubre la magia y conoce la historia de Luna"><span class="sr-only">Descubre la magia</span></a>
         </div>
-        <a class="cover-scroll" href="#historia">Desliza para descubrir <span aria-hidden="true">↓</span></a>
+        <a class="cover-scroll cover-scroll--hit-area" href="#historia" aria-label="Desliza para descubrir la historia de Luna"><span class="sr-only">Desliza para descubrir</span></a>
       </section>
 
       <section class="scene scene--story" id="historia" aria-labelledby="story-heading">

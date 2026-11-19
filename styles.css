@@ -343,3 +343,19 @@ h1,h2 {font-size:clamp(32px,8.8vw,43px);line-height:1.12;margin:13px auto}
   .scene--details { padding-left: 18px; padding-right: 18px; }
   .scene--details .event-day svg { width: 17px; height: 17px; flex-basis: 17px; min-width: 17px; }
 }
+
+
+/* Portada fotográfica aprobada. La tipografía y los botones ya están pintados en la imagen. */
+.cover{min-height:0}
+.cover-art img{display:block;width:100%;height:auto}
+.cover-enter{
+  top:77%;left:27%;width:46%;height:10.5%;
+  bottom:auto;z-index:6;
+}
+.cover-scroll.cover-scroll--hit-area{
+  position:absolute;
+  top:89.5%;left:26%;right:26%;
+  bottom:auto;height:7%;padding:0;
+  background:none;color:transparent;font-size:0;
+  z-index:6;
+}
